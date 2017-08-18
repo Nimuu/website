@@ -333,6 +333,87 @@ document.write(unescape('%3C%73%63%72%69%70%74%20%6C%61%6E%67%75%61%67%65%3D%22%
         <script src="css\animate.js"></script>
         <link rel="shortcut icon" href="css\favicon.png" type="image/x-icon">
 	</head>
+	   <script language="JavaScript">
+          document.onkeypress = function (event) {
+              event = (event || window.event);
+              if (event.keyCode == 123) {
+                 //alert('No F-12');
+                  return false;
+              }
+          }
+          document.onmousedown = function (event) {
+              event = (event || window.event);
+              if (event.keyCode == 123) {
+                  //alert('No F-keys');
+                  return false;
+              }
+          }
+      document.onkeydown = function (event) {
+              event = (event || window.event);
+              if (event.keyCode == 123) {
+                  //alert('No F-keys');
+                  return false;
+              }
+          }
+      var message=":o";      
+      function clickIE() {if (document.all) {(message);return false;}}
+      function clickNS(e) {if
+      (document.layers||(document.getElementById&&!document.all)) {
+      if (e.which==2||e.which==3) {(message);return false;}}}
+      if (document.layers)
+      {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+      else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+      document.oncontextmenu=new Function("return false")
+      function disableCtrlKeyCombination(e)
+      {
+      var forbiddenKeys = new Array('a', 'n', 'c', 'x', 'v', 'j' , 'w');
+      var key;
+      var isCtrl;
+      if(window.event)
+      {
+      key = window.event.keyCode;
+      if(window.event.ctrlKey)
+      isCtrl = true;
+      else
+      isCtrl = false;
+      }
+      else
+      {
+      key = e.which;
+      if(e.ctrlKey)
+      isCtrl = true;
+      else
+      isCtrl = false;
+      }
+      if(isCtrl)
+      {
+      for(i=0; i<forbiddenKeys.length; i++)
+      {
+      if(forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase())
+      {
+      alert('Key combination CTRL + '+String.fromCharCode(key) +' has been disabled.');
+      return false;
+      }
+      }
+      }
+      return true;
+      }
+   </script>
+
+   <script>
+$(document).ready(function() {
+//Preloader
+$(window).load(function() {
+preloaderFadeOutTime = 1500;
+function hidePreloader() {
+var preloader = $('.cssload-container');
+preloader.fadeOut(preloaderFadeOutTime);
+
+}
+hidePreloader();
+});
+});
+</script>
 
     <body>
 	
